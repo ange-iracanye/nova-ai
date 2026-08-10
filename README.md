@@ -8,7 +8,6 @@ Nova is a personal AI tutor designed around one idea:
 
 Nova can understand a student's questions, adapt explanations to their level, remember previous learning interactions, and help students build their understanding over time.
 
----
 
 ##  What is Nova?
 
@@ -18,7 +17,6 @@ Instead of simply answering a question, Nova is designed to understand the stude
 
 The goal is to make studying more personalized, interactive, and effective.
 
----
 
 ##  Core Features
 
@@ -62,14 +60,12 @@ Nova includes a teaching-decision system designed to determine how a concept sho
 
 Nova can explain programming concepts and work with code using dedicated code rendering and formatting.
 
----
 
 ##  Architecture
 
 Nova is built as a modular AI learning system.
 
 Its architecture includes several major components:
-
 ```text
 Student
    │
@@ -108,12 +104,10 @@ Answer Verification
    │
    ▼
 Student
-```
 
 The system is intentionally separated into different modules so that individual components can be improved without rebuilding the entire application.
 
----
-
+```
 ##  Main Systems
 
 Some of Nova's current systems include:
@@ -138,7 +132,6 @@ Some of Nova's current systems include:
 * Answer Verifier
 * Settings Manager
 
----
 
 ##  Technologies
 
@@ -156,7 +149,6 @@ Nova is currently being developed with technologies including:
 
 The project is continuously evolving as new systems and improvements are added.
 
----
 
 ##  Vision
 
@@ -178,7 +170,6 @@ Future development may include:
 * Improved long-term student memory
 * More sophisticated adaptive teaching
 
----
 
 ##  Project Status
 
@@ -188,7 +179,6 @@ Nova is currently under active development.
 
 The project is being built incrementally, with new features and improvements being added continuously.
 
----
 
 ##  Why I Built Nova
 
@@ -204,7 +194,6 @@ The project also serves as a practical way to explore:
 * User experience
 * Full-stack development
 
----
 
 ##  Author
 
@@ -212,7 +201,6 @@ Built independently as a long-term AI and software engineering project.
 
 The project is continuously evolving.
 
----
 
 ##  Roadmap
 
@@ -243,7 +231,6 @@ The project is continuously evolving.
 * [ ] Public deployment
 * [ ] User feedback system
 
----
 
 ##  Follow the Project
 
