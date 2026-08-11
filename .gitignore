@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local AI models and weights
+models/
+model/
+checkpoints/
+*.bin
+*.pt
+*.pth
+*.safetensors
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Build / cache
+build/
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local Nova data
+data/local/
+storage/local/
