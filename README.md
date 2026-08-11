@@ -1,239 +1,531 @@
-# Nova AI
+# Nova AI 
 
-> **An AI-powered personal learning assistant built to help students learn, understand, and improve.**
+> **An adaptive AI tutoring system designed to help students understand, learn, and improve.**
 
-Nova is a personal AI tutor designed around one idea:
+Nova is a personal AI tutoring project focused on a simple idea:
 
-**AI should not just give students answers. It should help them learn.**
+> **An AI tutor should understand the student, not just the question.**
 
-Nova can understand a student's questions, adapt explanations to their level, remember previous learning interactions, and help students build their understanding over time.
+Instead of treating every conversation as an isolated request, Nova is being designed around **student context, memory, knowledge retrieval, adaptive tutoring, and personalized learning**.
 
+Nova is my main long-term AI and software engineering project.
 
-##  What is Nova?
+---
 
-Nova is an AI learning assistant that combines conversational AI with student-focused learning systems.
+## Why Nova?
 
-Instead of simply answering a question, Nova is designed to understand the student's context and provide an appropriate learning experience.
+General-purpose AI assistants are good at answering questions.
 
-The goal is to make studying more personalized, interactive, and effective.
+Nova is being built around a different problem:
 
+**How can an AI system actually behave like a useful personal tutor?**
 
-##  Core Features
+That means considering things such as:
 
-### Adaptive AI
+* What does the student already know?
+* What are they currently studying?
+* What have they struggled with before?
+* How confident are they?
+* Which explanation strategy should be used?
+* What information should be remembered?
+* Which knowledge should be retrieved?
+* When should a tool be used instead of the language model?
 
-Nova can adapt its explanations according to the student's understanding and learning needs.
+Nova is an attempt to engineer systems around these questions.
 
-###  Personal Tutor
+---
 
-Nova is designed to teach concepts step by step rather than simply providing answers.
+# Current Features
 
-###  AI Conversations
+Nova is under active development.
 
-Students can have ongoing conversations with Nova and return to previous discussions.
+### AI & Tutoring
 
-###  Memory
+* [x] Local LLM inference
+* [x] Tutor Engine
+* [x] Prompt construction
+* [x] Student-aware tutoring context
+* [x] Adaptive tutoring architecture
+* [ ] Advanced tutoring evaluation
 
-Nova can remember information from previous learning interactions and use it to provide more personalized responses.
+### Memory
 
-###  Knowledge Map
+* [x] Conversation context
+* [x] Memory extraction
+* [x] Memory metadata
+* [x] Student-related memory
+* [x] Confidence tracking
+* [ ] More reliable structured fact extraction
+* [ ] Advanced long-term memory retrieval
 
-Nova tracks concepts and learning areas to build a picture of what the student understands.
+### Knowledge
 
-###  Progress Tracking
+* [x] Knowledge loading
+* [x] Knowledge retrieval
+* [x] Embedding-based search
+* [x] Relevance thresholding
+* [ ] Larger knowledge system
+* [ ] Automated retrieval evaluation
 
-Nova tracks learning activity and progress across subjects.
+### Student System
 
-###  Difficulty Adaptation
+* [x] Student profile
+* [x] Subject context
+* [x] Understanding/confidence tracking
+* [x] Learning context
+* [ ] More advanced learning analytics
 
-Nova can adjust the difficulty of learning based on the student's performance and confidence.
+### Tools & Intelligence
 
-###  Intent & Subject Detection
+* [x] Intent detection
+* [x] Skill system
+* [x] Calculator support
+* [x] Internet-related tooling
+* [ ] More advanced tool selection
 
-Nova analyzes questions to determine what the student is asking and which subject or learning area is involved.
+### Application
 
-###  Teacher Brain
+* [x] Web interface
+* [x] Chat interface
+* [x] Dashboard
+* [x] Study system
+* [x] Quiz system
+* [x] Upload functionality
+* [x] Settings
+* [x] Code rendering
 
-Nova includes a teaching-decision system designed to determine how a concept should be explained to the student.
+---
 
-###  Code Support
+# Architecture
 
-Nova can explain programming concepts and work with code using dedicated code rendering and formatting.
+Nova is designed as a modular AI system.
 
+A simplified representation of the current architecture is:
 
-##  Architecture
-
-Nova is built as a modular AI learning system.
-
-Its architecture includes several major components:
 ```text
-Student
-   │
-   ▼
-Conversation
-   │
-   ▼
-Intent Detection
-   │
-   ▼
-Subject Detection
-   │
-   ▼
-Student Profile
-   │
-   ├── Memory
-   ├── Knowledge Map
-   ├── Progress Tracking
-   ├── Understanding Tracking
-   └── Learning History
-   │
-   ▼
-Teacher Brain
-   │
-   ▼
-Adaptive Tutor
-   │
-   ▼
-Nova Brain
-   │
-   ▼
-Tutor Engine
-   │
-   ▼
-Answer Verification
-   │
-   ▼
-Student
-
-The system is intentionally separated into different modules so that individual components can be improved without rebuilding the entire application.
-
+                         ┌─────────────────┐
+                         │     Student     │
+                         └────────┬────────┘
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │ Intent Detector │
+                         └────────┬────────┘
+                                  │
+                 ┌────────────────┼────────────────┐
+                 │                │                │
+                 ▼                ▼                ▼
+          ┌────────────┐   ┌────────────┐   ┌────────────┐
+          │   Memory   │   │ Knowledge  │   │   Tools    │
+          │   System   │   │  Retrieval │   │ Calculator │
+          └──────┬─────┘   └──────┬─────┘   └──────┬─────┘
+                 │                │                │
+                 └────────────────┼────────────────┘
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │   TutorEngine   │
+                         └────────┬────────┘
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │  PromptBuilder  │
+                         └────────┬────────┘
+                                  │
+                                  ▼
+                         ┌─────────────────┐
+                         │    Local LLM    │
+                         └────────┬────────┘
+                                  │
+                                  ▼
+                              Response
+                                  │
+                                  ▼
+                         Memory / Learning
+                              Update
 ```
-##  Main Systems
 
-Some of Nova's current systems include:
+The architecture is intentionally modular so individual systems can be improved without rewriting the entire application.
 
-* Memory Manager
-* Student Memory
-* Conversation Manager
-* Tutor Engine
-* Adaptive Tutor
-* Teacher Brain
-* Nova Brain
-* Student Profile
-* Knowledge Map
-* Learning Graph
-* Learning Analyzer
-* Understanding Tracker
-* Session Manager
-* Progress Tracker
-* Difficulty Engine
-* Intent Detector
-* Subject Detector
-* Answer Verifier
-* Settings Manager
+---
 
+# Core Systems
 
-##  Technologies
+## TutorEngine
 
-Nova is currently being developed with technologies including:
+The TutorEngine coordinates Nova's tutoring process.
+
+It brings together information such as:
+
+* student context
+* subject
+* current question
+* tutoring mode
+* tutoring strategy
+* understanding/confidence
+
+and passes the relevant context toward prompt construction and model generation.
+
+---
+
+## PromptBuilder
+
+`PromptBuilder` separates prompt construction from the TutorEngine.
+
+The basic flow is:
+
+```text
+Student Context
+      ↓
+Subject
+      ↓
+Question
+      ↓
+Mode
+      ↓
+Strategy
+      ↓
+PromptBuilder
+      ↓
+System + User Prompt
+      ↓
+Local LLM
+```
+
+This separation makes the tutoring architecture easier to modify and experiment with.
+
+---
+
+## Memory System
+
+Nova includes a memory system designed to extract useful information from conversations.
+
+Memory can contain information such as:
+
+```text
+type
+text
+subject
+conversation
+importance
+confidence
+```
+
+The system is being developed toward long-term student personalization.
+
+One current development area is improving the reliability of natural-language fact extraction.
+
+For example, a statement such as:
+
+```text
+"My name is Michael."
+```
+
+should ideally become a structured fact rather than simply storing an incomplete piece of text.
+
+---
+
+## Knowledge Retrieval
+
+Nova uses a retrieval system to find relevant information before generating certain responses.
+
+The system includes:
+
+* knowledge loading
+* embeddings
+* similarity search
+* relevance filtering
+
+This allows Nova to combine retrieved information with the student's context before generating an answer.
+
+---
+
+## Student Profile
+
+Nova maintains a student-oriented context containing information useful for tutoring.
+
+The system can work with information such as:
+
+* learning history
+* subjects
+* questions
+* answers
+* understanding
+* confidence
+
+The long-term goal is for this information to influence how Nova teaches.
+
+---
+
+## Adaptive Tutoring
+
+Nova is being developed around adaptive tutoring rather than simply question answering.
+
+The intended process is:
+
+```text
+Student Question
+      ↓
+Understand Context
+      ↓
+Determine Student State
+      ↓
+Choose Teaching Strategy
+      ↓
+Generate Explanation
+      ↓
+Evaluate Understanding
+      ↓
+Update Student Context
+```
+
+This system is still being actively improved.
+
+---
+
+# Local AI
+
+Nova uses local language models rather than depending entirely on an external AI API.
+
+The local inference system is designed to:
+
+1. Load the model
+2. Process the prompt
+3. Generate new tokens
+4. Decode only the generated response
+5. Return the result to the tutoring system
+
+Keeping the model layer separate from the tutoring architecture allows Nova's AI backend to evolve independently.
+
+---
+
+# Technology Stack
+
+### Backend
 
 * Python
-* React
-* JavaScript
 * Flask
+
+### AI
+
+* Local language models
+* Transformers
+* Embeddings
+* Retrieval systems
+
+### Frontend
+
+* JavaScript
+* React
+* HTML/CSS
 * Tailwind CSS
-* Local AI models
-* Retrieval-based knowledge systems
-* JSON-based persistence
+
+### Architecture
+
+* Modular Python components
 * REST APIs
+* JSON-based persistence
+* Git/GitHub
 
-The project is continuously evolving as new systems and improvements are added.
+---
 
+# Project Structure
 
-##  Vision
+The project is being organized around separate responsibilities.
 
-Nova is being developed with a long-term goal:
+A simplified structure is:
+
+```text
+nova-ai/
+│
+├── backend/
+│   ├── tutor_engine/
+│   ├── memory_system/
+│   ├── knowledge/
+│   ├── llm/
+│   ├── profile/
+│   ├── tools/
+│   └── ...
+│
+├── frontend/
+│
+├── tests/
+│
+├── docs/
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+The exact structure may evolve as the architecture develops.
+
+---
+
+# Running Nova
+
+Nova is currently a development project.
+
+## Requirements
+
+* Python
+* Git
+* Required Python dependencies
+* A compatible local AI model
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ange-iracanye/nova-ai.git
+cd nova-ai
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate it on Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then start Nova using the project's application entry point.
+
+> The exact startup command may change while the project is under active development.
+
+---
+
+# Testing
+
+Nova is being developed with testing in mind.
+
+The test suite is being expanded around important systems such as:
+
+* Memory extraction
+* Knowledge retrieval
+* Prompt construction
+* TutorEngine
+* Tool selection
+* Student context
+
+Testing is particularly important for Nova because many of its systems depend on interpreting natural-language input.
+
+---
+
+# Roadmap
+
+## Current
+
+* [x] Local AI inference
+* [x] Tutor Engine
+* [x] PromptBuilder
+* [x] Student profile
+* [x] Conversation memory
+* [x] Memory extraction
+* [x] Knowledge retrieval
+* [x] Embedding search
+* [x] Intent detection
+* [x] Tool system
+* [x] Quiz system
+* [x] Web interface
+
+## In Development
+
+* [ ] Improve memory extraction accuracy
+* [ ] Improve long-term memory retrieval
+* [ ] Improve adaptive tutoring strategies
+* [ ] Add automated tests
+* [ ] Evaluate retrieval quality
+* [ ] Improve student understanding tracking
+* [ ] Improve tutoring decisions
+* [ ] Improve model response quality
+
+## Future
+
+* [ ] Advanced learning analytics
+* [ ] More sophisticated study planning
+* [ ] Stronger mathematical reasoning
+* [ ] Improved coding assistance
+* [ ] More advanced personalization
+* [ ] Larger knowledge systems
+* [ ] User feedback system
+* [ ] Public deployment
+* [ ] Performance optimization
+
+---
+
+# Known Limitations
+
+Nova is still an experimental project.
+
+Some systems are functional but still being improved.
+
+In particular:
+
+* Memory extraction can produce imperfect facts.
+* Retrieval quality needs more systematic evaluation.
+* Adaptive tutoring is still being refined.
+* The local model's capabilities depend heavily on the selected model.
+* The project has not yet been optimized for production-scale deployment.
+
+These limitations are part of the development process and are being addressed through testing and iteration.
+
+---
+
+# Why I Built Nova
+
+Nova started as a personal project to explore how artificial intelligence could make learning more personalized.
+
+It has since become a larger exploration of:
+
+* AI engineering
+* Software architecture
+* Natural language processing
+* Retrieval systems
+* Local language models
+* Educational technology
+* Personalization
+* Full-stack development
+
+The project is also my main way of learning how complete AI systems are designed, implemented, tested, and improved.
+
+---
+
+# Vision
+
+The long-term goal is simple:
 
 > **Build an AI tutor that students genuinely prefer to use for learning.**
 
-Rather than creating another general-purpose chatbot, Nova focuses specifically on education and personalized learning.
+Nova is not intended to become another general-purpose chatbot.
 
-Future development may include:
+Its focus is **education and personalized learning**.
 
-* More advanced personalization
-* Stronger learning analytics
-* Better knowledge tracking
-* More intelligent study planning
-* Improved assessment and quizzes
-* Stronger mathematical reasoning
-* More advanced coding assistance
-* Improved long-term student memory
-* More sophisticated adaptive teaching
+The project will continue evolving as I learn more about artificial intelligence, mathematics, computer science, and software engineering.
 
+---
 
-##  Project Status
+# Author
 
-**Version:** 1.0 in development
+**Ange Iracanye**
 
-Nova is currently under active development.
+Terminale student and aspiring AI engineer.
 
-The project is being built incrementally, with new features and improvements being added continuously.
+Nova is an independent long-term project focused on learning through building.
 
+---
 
-##  Why I Built Nova
+## License
 
-Nova started as a personal project to explore how artificial intelligence could be used to make learning more personalized.
-
-The project also serves as a practical way to explore:
-
-* Artificial intelligence
-* Software engineering
-* Machine learning
-* Natural language processing
-* Educational technology
-* User experience
-* Full-stack development
-
-
-##  Author
-
-Built independently as a long-term AI and software engineering project.
-
-The project is continuously evolving.
-
-
-##  Roadmap
-
-### Version 1.0
-
-* [x] AI conversation
-* [x] Student profiles
-* [x] Conversation history
-* [x] Memory system
-* [x] Adaptive tutoring
-* [x] Subject detection
-* [x] Intent detection
-* [x] Progress tracking
-* [x] Knowledge mapping
-* [x] Answer verification
-* [x] Personalized settings
-* [x] Modern web interface
-
-### Future
-
-* [ ] Advanced learning analytics
-* [ ] More intelligent study planning
-* [ ] Advanced quiz generation
-* [ ] Stronger mathematical reasoning
-* [ ] More advanced personalization
-* [ ] Expanded coding capabilities
-* [ ] Improved long-term memory
-* [ ] Public deployment
-* [ ] User feedback system
-
-
-##  Follow the Project
-
-Nova is an ongoing project focused on exploring what a truly personalized AI learning assistant could become.
-
-More updates will be added as the project develops.
+This project is currently under active development.
