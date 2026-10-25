@@ -1,72 +1,28 @@
+> **Historical prototype documentation:** These notes describe the earlier Nova memory design and are not a guarantee of current production behavior. See the [canonical Nova repository](https://github.com/ange-iracanye/Nova) for current code and release checks.
+
 # Nova Memory System
 
-Nova's memory system is designed to give the tutor continuity between conversations.
+The early design explored memory as a way to preserve useful context between tutoring conversations. The goal was not to remember everything, but to retain information that could improve future learning.
 
-The goal is not to remember everything.
-
-The goal is to remember information that can improve future tutoring.
-
----
-
-## Why Memory?
-
-Without memory:
+## Intended flow
 
 ```text
-Student
-   ↓
-Question
-   ↓
-Answer
-   ↓
-Conversation ends
-```
-
-With memory:
-
-```text
-Student
-   ↓
-Question
-   ↓
-Answer
-   ↓
-Useful information extracted
-   ↓
-Memory
-   ↓
-Future conversation
-   ↓
+Conversation
+    ↓
+Candidate information extraction
+    ↓
+Validation and metadata
+    ↓
+Storage and retrieval
+    ↓
+Relevant student context
+    ↓
 Personalized tutoring
 ```
 
----
+## Metadata considered
 
-# Memory Extraction
-
-Nova includes a `MemoryExtractor` responsible for identifying potentially useful information from natural-language conversations.
-
-For example:
-
-```text
-"My goal is to study artificial intelligence."
-```
-
-could represent a student goal.
-
-Similarly:
-
-```text
-"I prefer detailed explanations."
-```
-
-could represent a learning preference.
-
----
-
-# Memory Metadata
-
-Nova's memory system can associate information with metadata such as:
+The prototype documentation considered fields such as:
 
 ```text
 type
@@ -77,113 +33,21 @@ importance
 confidence
 ```
 
-This allows memories to eventually be filtered and ranked rather than treated as identical pieces of text.
+These are design notes, not a claim that all fields are reliably extracted or persisted in the current application.
 
----
+## Quality questions
 
-# Memory Pipeline
+A useful memory system should be evaluated for:
 
-```text
-Conversation
-     │
-     ▼
-MemoryExtractor
-     │
-     ▼
-Potential Fact
-     │
-     ▼
-Metadata
-     │
-     ▼
-Storage
-     │
-     ▼
-Retrieval
-     │
-     ▼
-Student Context
-     │
-     ▼
-TutorEngine
-```
+- **Relevance:** does this help future tutoring?
+- **Accuracy:** was the information extracted correctly?
+- **Confidence:** how reliable is the extracted fact?
+- **Importance:** is the information worth retaining?
+- **Persistence:** should it remain available in later sessions?
+- **Privacy:** should the information be stored at all, and how can it be corrected or deleted?
 
----
+Natural-language extraction can be imperfect. Current behavior must be verified against the canonical repository and its tests.
 
-# Current Development Challenge
+## Design principle
 
-Natural-language fact extraction is still imperfect.
-
-For example, a sentence such as:
-
-```text
-"My name is Michael."
-```
-
-should ideally produce a structured representation such as:
-
-```text
-Type: identity
-Field: name
-Value: Michael
-```
-
-rather than simply extracting:
-
-```text
-"Michael."
-```
-
-Improving this behavior is an active development task.
-
----
-
-# Memory Quality
-
-Memory should eventually be evaluated according to:
-
-### Relevance
-
-Is this information actually useful?
-
-### Accuracy
-
-Was the information extracted correctly?
-
-### Confidence
-
-How confident is Nova that the extracted fact is correct?
-
-### Importance
-
-How valuable is the information for future tutoring?
-
-### Persistence
-
-Should the information remain available in future sessions?
-
----
-
-# Future Improvements
-
-Planned improvements include:
-
-* better structured fact extraction
-* duplicate detection
-* memory updating
-* contradiction handling
-* memory ranking
-* better retrieval
-* memory expiration where appropriate
-* automated memory tests
-* stronger personalization
-
----
-
-# Design Principle
-
-Nova should not remember information simply because it can.
-
-The objective is:
-
-> **Remember what helps the student learn better.**
+> Remember information when it helps the student learn, and handle student data deliberately.
