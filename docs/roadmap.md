@@ -1,118 +1,59 @@
-# Nova Roadmap
+> **Historical prototype roadmap:** The checkboxes below describe the earlier prototype's plans and must not be interpreted as the current application's feature status. See the [canonical Nova repository](https://github.com/ange-iracanye/Nova) and its [V1 release checklist](https://github.com/ange-iracanye/Nova/blob/main/docs/V1_RELEASE.md) for current implementation and release readiness.
 
-Nova is a long-term project and will evolve through several stages.
+# Early Nova Roadmap
 
----
+This roadmap preserves the direction explored during the earlier prototype. It is reference material, not the active source of truth.
 
-# Phase 1: Foundation
+## Original development themes
 
-### Completed
+### Personalization
 
-* [x] Web application
-* [x] Chat system
-* [x] Local LLM integration
-* [x] Basic conversation management
-* [x] Student profile
-* [x] TutorEngine
-* [x] PromptBuilder
-* [x] Intent detection
-* [x] Tool system
-* [x] Knowledge loading
-* [x] Knowledge retrieval
+- Structured fact extraction
+- Memory retrieval and ranking
+- Contradiction handling
+- Long-term personalization
 
----
+### Adaptive tutoring
 
-# Phase 2: Personalization
+- Better teaching-strategy selection
+- Student-level and difficulty adaptation
+- Understanding evaluation
+- More useful feedback
 
-### Current
+### Evaluation
 
-* [x] Memory extraction
-* [x] Student context
-* [x] Confidence tracking
-* [x] Subject context
-* [ ] Improve structured fact extraction
-* [ ] Improve memory retrieval
-* [ ] Improve memory ranking
-* [ ] Handle contradictory memories
-* [ ] Improve long-term personalization
+- Automated tests
+- Memory and retrieval benchmarks
+- Tutor-response evaluation
+- Hallucination and reliability testing
+- Performance measurements
 
----
+### Learning systems
 
-# Phase 3: Adaptive Tutoring
+- Learning analytics
+- Knowledge and concept mastery tracking
+- Study planning and personalized revision
+- Quiz generation and learning recommendations
 
-### Current / Planned
+### Application quality
 
-* [x] Adaptive tutoring architecture
-* [x] Tutoring strategies
-* [ ] Better strategy selection
-* [ ] Student-level adaptation
-* [ ] Difficulty adaptation
-* [ ] Automated understanding evaluation
-* [ ] More sophisticated tutoring feedback
+- Improved user experience
+- Study workflows
+- User feedback
+- Performance and accessibility improvements
 
----
-
-# Phase 4: Evaluation
-
-### Planned
-
-* [ ] Automated unit tests
-* [ ] Memory extraction benchmarks
-* [ ] Retrieval evaluation
-* [ ] Tutor response evaluation
-* [ ] Hallucination testing
-* [ ] Response quality benchmarks
-* [ ] Performance measurements
-
----
-
-# Phase 5: Learning Systems
-
-### Planned
-
-* [ ] Advanced learning analytics
-* [ ] Knowledge graph improvements
-* [ ] Concept mastery tracking
-* [ ] Study planning
-* [ ] Personalized revision
-* [ ] Better quiz generation
-* [ ] Learning recommendations
-
----
-
-# Phase 6: Application
-
-### Planned
-
-* [ ] Improved user experience
-* [ ] More polished dashboard
-* [ ] Better study workflows
-* [ ] User feedback system
-* [ ] Performance optimization
-* [ ] Public deployment
-
----
-
-# Long-Term Vision
-
-The long-term goal is to build an AI tutor that can:
+## Long-term direction
 
 ```text
-Understand the student
+Understand the learner
         ↓
-Understand the subject
+Understand the learning goal
         ↓
-Understand the student's current level
+Choose a teaching strategy
         ↓
-Choose an appropriate teaching strategy
+Teach and check understanding
         ↓
-Teach
-        ↓
-Evaluate understanding
-        ↓
-Remember useful information
-        ↓
-Improve future tutoring
+Use feedback to improve future tutoring
 ```
 
-Nova is being developed incrementally toward this goal.
+Check the current application's code, tests, and release checklist before describing any item as implemented or complete.
